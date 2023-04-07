@@ -1,5 +1,11 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "description": "Opinionated renovate configuration (e.g., uses conventional commit messages)",
-  "extends": ["config:base", ":semanticCommits", ":automergePatch"]
+  "extends": [
+    "config:base",
+    ":automergePatch",
+    ":semanticCommits",
+    ":semanticCommitTypeAll(chore)",
+    ":semanticCommitScope(deps)"
+  ]
 }
