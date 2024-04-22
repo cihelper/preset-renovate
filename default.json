@@ -2,13 +2,42 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "description": "Opinionated renovate configuration (e.g., uses conventional commit messages)",
   "extends": [
-    "config:base",
-    ":automergePatch",
+    ":dependencyDashboard",
+    ":ignoreModulesAndTests",
+    "group:monorepos",
+    "group:recommended",
+    "replacements:all",
+    "workarounds:all",
     ":semanticCommits",
-    ":semanticCommitTypeAll(chore)",
+    ":semanticPrefixChore",
     ":semanticCommitScope(deps)"
   ],
   "nix": {
     "enabled": true
+  },
+  "lockFileMaintenance": {
+    "enabled": false,
+    "automerge": true,
+    "extends": ["schedule:weekly"]
+  },
+  "major": {
+    "enabled": true,
+    "automerge": false
+  },
+  "minor": {
+    "enabled": false,
+    "automerge": false
+  },
+  "patch": {
+    "enabled": false,
+    "automerge": true
+  },
+  "pin": {
+    "enabled": false,
+    "automerge": true
+  },
+  "digest": {
+    "enabled": false,
+    "automerge": true
   }
 }
